@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login - Smart Ration Vending Machine</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #6dd5fa, #2980b9);
+    }
+
+    .header {
+      background: #fff;
+      padding: 12px 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .login-container {
+      width: 350px;
+      margin: 80px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .password-box {
+      position: relative;
+    }
+
+    .eye {
+      position: absolute;
+      right: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      fill: #555;
+    }
+
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 95%;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="header">
+  <h2>Smart Ration Vending Machine - Admin Login</h2>
+</div>
+
+<div class="login-container">
+  <h3>Admin Login</h3>
+
+  <input type="text" id="username" placeholder="Username">
+
+  <div class="password-box">
+    <input type="password" id="password" placeholder="Password">
+
+    <!-- NORMAL EYE ICON (SVG) -->
+    <svg class="eye" id="eyeIcon" onclick="togglePassword()" viewBox="0 0 24 24">
+      <path d="M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+    </svg>
+  </div>
+
+  <button onclick="login()">Login</button>
+
+  <div class="error" id="msg"></div>
+</div>
+
+<script>
+  const ADMIN_USER = "KadambariPawar1";
+  const ADMIN_PASS = "admin1234";
+
+  function login() {
+    let u = document.getElementById("username").value;
+    let p = document.getElementById("password").value;
+
+    if (u === ADMIN_USER && p === ADMIN_PASS) {
+      sessionStorage.setItem("loggedIn", "true");
+      window.location.href = "index.html";
+    } else {
+      document.getElementById("msg").innerText = "Invalid Username or Password";
+    }
+  }
+
+  function togglePassword() {
+    const pwd = document.getElementById("password");
+
+    if (pwd.type === "password") {
+      pwd.type = "text";
+    } else {
+      pwd.type = "password";
+    }
+  }
+</script>
+
+</body>
+</html>

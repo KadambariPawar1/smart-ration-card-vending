@@ -1,0 +1,6 @@
+RPi.GPIO
+pyserial
+hx711
+pyfingerprint
+firebase-admin
+RPLCD
